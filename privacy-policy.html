@@ -1,149 +1,277 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>プライバシーポリシー - ゲムコレ</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #FFA94D;
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 2.5em;
-        }
-        h2 {
-            color: #00B8D9;
-            border-bottom: 2px solid #00B8D9;
-            padding-bottom: 10px;
-            margin-top: 30px;
-        }
-        h3 {
-            color: #FFA94D;
-            margin-top: 25px;
-        }
-        .header-info {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-            border-left: 4px solid #FFA94D;
-        }
-        .back-link {
-            text-align: center;
-            margin: 20px 0;
-        }
-        .back-link a {
-            color: #00B8D9;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .back-link a:hover {
-            text-decoration: underline;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 8px;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            color: #666;
-            font-size: 0.9em;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#151b23" media="(prefers-color-scheme: dark)" />
+  <title>プライバシーポリシー - ゲムコレ</title>
+  <style>
+    :root {
+      --primary: #ffa94d;
+      --secondary: #00b8d9;
+      --bg: #f6f7fb;
+      --surface: #ffffff;
+      --text: #1f2937;
+      --text-secondary: #6b7280;
+      --border: #e5e7eb;
+      --shadow: 0 8px 24px rgba(16,24,40,0.06);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f141a;
+        --surface: #151b23;
+        --text: #e5e7eb;
+        --text-secondary: #9ca3af;
+        --border: #223042;
+        --shadow: 0 10px 30px rgba(2,8,23,0.6);
+      }
+    }
+
+    html, body {
+      height: 100%;
+    }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', Meiryo, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Appbar */
+    .appbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow);
+    }
+    .appbar-inner {
+      max-width: 860px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 16px;
+      gap: 8px;
+    }
+    .appbar-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.2px;
+    }
+    .appbar-spacer { width: 32px; }
+
+    /* Page */
+    .page {
+      display: flex;
+      justify-content: center;
+      padding: 24px 16px 56px;
+    }
+    .container {
+      width: 100%;
+      max-width: 860px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    /* Header block like app */
+    .doc-title {
+      text-align: center;
+      font-weight: 800;
+      font-size: 24px;
+      margin: 6px 0 2px;
+    }
+    .last-updated {
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 13px;
+      margin: 8px 0 22px;
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      background: color-mix(in srgb, var(--secondary) 8%, transparent);
+      border: 1px solid color-mix(in srgb, var(--secondary) 22%, var(--border));
+      padding: 16px;
+      border-radius: 10px;
+      margin: 10px 0 18px;
+    }
+    .meta-item strong { color: var(--text-secondary); font-weight: 600; }
+
+    /* Sections */
+    h2.section {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin: 28px 0 12px;
+      padding-top: 6px;
+      border-top: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+    }
+    .section-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px; height: 26px;
+      border-radius: 6px;
+      background: color-mix(in srgb, var(--primary) 16%, transparent);
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 13px;
+    }
+    p { line-height: 1.8; margin: 8px 0 10px; }
+    ul { padding-left: 1.2rem; margin: 8px 0 10px; }
+    li { margin: 6px 0; }
+    li::marker { color: var(--secondary); }
+
+    /* Links */
+    a { color: var(--secondary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Back link */
+    .back {
+      text-align: center;
+      margin: 8px 0 22px;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      margin-top: 32px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 13px;
+    }
+
+    /* Shield icon */
+    .shield { width: 22px; height: 22px; color: var(--primary); }
+    .shield svg { display: block; width: 100%; height: 100%; fill: currentColor; }
+
+    @media (min-width: 720px) {
+      .meta-grid { grid-template-columns: repeat(3, 1fr); }
+      .container { padding: 32px; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>プライバシーポリシー</h1>
-        
-        <div class="header-info">
-            <p><strong>最終更新日:</strong> 2025年8月3日</p>
-            <p><strong>アプリ名:</strong> ゲムコレ</p>
-            <p><strong>運営者:</strong> Yusuke Oshita</p>
-        </div>
-
-        <div class="back-link">
-            <a href="index.html">← サポートページに戻る</a>
-        </div>
-
-        <p>ゲムコレ（以下「本アプリ」）は、ユーザーの皆様のプライバシーを尊重し、個人情報の保護に努めています。本プライバシーポリシーは、本アプリがどのような個人情報を収集し、どのように利用・保護するかについて説明します。</p>
-
-        <h2>1. 収集する情報</h2>
-        <p>本アプリでは、サービス提供に必要な範囲で以下の情報を収集します：</p>
-        <ul>
-            <li>アカウント情報（認証情報、ユーザー名）</li>
-            <li>ゲームコレクション情報（登録したゲーム、評価等）</li>
-            <li>プロフィール情報</li>
-            <li>アプリ使用状況情報</li>
-        </ul>
-
-        <h2>2. 情報の利用目的</h2>
-        <p>収集した情報は、アプリサービスの提供・運営、ユーザーサポート、サービス改善の目的でのみ利用します。</p>
-
-        <h2>3. 第三者サービスの利用</h2>
-        <p>本アプリは、以下の第三者サービスを利用しています。これらのサービスには各社のプライバシーポリシーが適用されます：</p>
-        <ul>
-            <li><strong>Firebase（Google）:</strong> ユーザー認証、データ保存、クラウド機能</li>
-            <li><strong>IGDB API:</strong> ゲーム情報データベース</li>
-        </ul>
-
-        <h2>4. 情報の共有と開示</h2>
-        <p>以下の場合を除き、個人情報を第三者に提供することはありません：</p>
-        <ul>
-            <li>ユーザーの同意がある場合</li>
-            <li>法令に基づく場合</li>
-            <li>生命、身体または財産の保護のために必要な場合</li>
-        </ul>
-
-        <h2>5. データの保存と削除</h2>
-        <p>ユーザーデータは適切なセキュリティ対策の下で保存され、アカウント削除時には関連データも削除されます。</p>
-
-        <h2>6. ユーザーの権利と対応方法</h2>
-        <p>ユーザーは、個人情報の開示・訂正・削除、データ利用停止、アカウント削除の権利を有します。</p>
-        <p>これらの権利行使をご希望の場合は、以下の方法でお問い合わせください：</p>
-        <ul>
-            <li>アプリ内のお問い合わせ機能から「プライバシー関連」を選択</li>
-            <li>必要事項（氏名、メールアドレス、ご希望の対応内容）を記載して送信</li>
-            <li>本人確認後、原則として30日以内に対応いたします</li>
-        </ul>
-        <p>アカウント削除については、プロフィール設定の「アカウント削除」機能からも実行可能です。</p>
-
-        <h2>7. セキュリティ</h2>
-        <p>個人情報の漏洩、滅失、毀損の防止のため、適切な技術的・組織的安全管理措置を講じています。</p>
-
-        <h2>8. プライバシーポリシーの変更</h2>
-        <p>本ポリシーを変更する場合は、アプリ内で通知いたします。</p>
-
-        <h2>9. お問い合わせ</h2>
-        <p>個人情報の取り扱いに関するご質問やご要望は、アプリ内のお問い合わせ機能をご利用ください。</p>
-
-        <div class="back-link">
-            <a href="index.html">← サポートページに戻る</a>
-        </div>
-
-        <div class="footer">
-            <p style="text-align: center; margin-top: 32px; color: #666; font-size: 0.9em;">ゲムコレ開発者</p>
-            <p>&copy; 2025 Yusuke Oshita. All rights reserved.</p>
-        </div>
+  <!-- App-like header -->
+  <header class="appbar" role="banner">
+    <div class="appbar-inner">
+      <div class="appbar-spacer" aria-hidden="true"></div>
+      <div class="shield" aria-hidden="true">
+        <!-- phosphor-like shield svg -->
+        <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+          <path d="M208,40l-76-24a8,8,0,0,0-4.9,0L52,40a8,8,0,0,0-4,6.9V120c0,78.4,86.1,106.2,87,106.5a7.9,7.9,0,0,0,5,0c0.9-.3,87-28.1,87-106.5V46.9A8,8,0,0,0,208,40ZM200,120c0,61.6-64,86.7-72,89.6C120,206.7,56,181.6,56,120V53.7l72-22.7,72,22.7Z"/>
+        </svg>
+      </div>
+      <div class="appbar-title">プライバシーポリシー</div>
+      <div class="appbar-spacer" aria-hidden="true"></div>
     </div>
+  </header>
+
+  <main class="page" role="main">
+    <article class="container">
+      <h1 class="doc-title">プライバシーポリシー</h1>
+      <div class="last-updated">最終更新日: 2025年10月14日</div>
+
+      <div class="meta-grid" aria-label="アプリ情報">
+        <div class="meta-item"><strong>アプリ名:</strong> ゲムコレ</div>
+        <div class="meta-item"><strong>運営者:</strong> Yusuke Oshita</div>
+        <div class="meta-item"><strong>サポート:</strong> <a href="index.html">サポートページへ</a></div>
+      </div>
+
+      <div class="back"><a href="index.html">← サポートページに戻る</a></div>
+
+      <p>ゲムコレ（以下「本アプリ」）は、ユーザーの皆様のプライバシーを尊重し、個人情報の保護に努めています。本プライバシーポリシーは、本アプリがどのような個人情報を収集し、どのように利用・保護するかについて説明します。</p>
+
+      <h2 id="section-1" class="section"><span class="section-badge">1</span> 収集する情報</h2>
+      <p>本アプリでは、サービス提供に必要な範囲で以下の情報を収集します：</p>
+      <ul>
+        <li>アカウント情報（認証情報、ユーザー名）</li>
+        <li>ゲームコレクション情報（登録したゲーム、評価等）</li>
+        <li>プロフィール情報</li>
+        <li>利用状況データ（画面閲覧・機能利用などのイベント）※メールアドレス等の個人を特定できる情報は解析に送信しません。</li>
+        <li>プッシュ通知トークンおよび端末識別情報（通知配信・不正利用対策のため）</li>
+      </ul>
+
+      <h2 id="section-2" class="section"><span class="section-badge">2</span> 情報の利用目的</h2>
+      <p>収集した情報は、アプリサービスの提供・運営、ユーザーサポート、サービス改善の目的でのみ利用します。</p>
+
+      <h2 id="section-3" class="section"><span class="section-badge">3</span> 第三者サービスの利用</h2>
+      <p>本アプリは、以下の第三者サービスを利用しています。これらのサービスには各社のプライバシーポリシーが適用されます：</p>
+      <ul>
+        <li><strong>Firebase（Google）:</strong> 認証、データ保存、クラウド機能、利用状況分析（Firebase Analytics）</li>
+        <li><strong>FCM/Expo:</strong> プッシュ通知の配信</li>
+        <li><strong>Resend:</strong> お問い合わせメールの配信</li>
+        <li><strong>IGDB:</strong> ゲーム情報データベース</li>
+      </ul>
+
+      <h2 id="section-4" class="section"><span class="section-badge">4</span> 情報の共有と開示</h2>
+      <p>以下の場合を除き、個人情報を第三者に提供することはありません：</p>
+      <ul>
+        <li>ユーザーの同意がある場合</li>
+        <li>法令に基づく場合</li>
+        <li>生命、身体または財産の保護のために必要な場合</li>
+      </ul>
+
+      <h2 id="section-5" class="section"><span class="section-badge">5</span> データの保存と削除</h2>
+      <p>ユーザーデータは適切なセキュリティ対策の下で保存されます。アカウント削除のご依頼後、関連データ（投稿・コメント・ライブラリ・体験メモ・フォロー・いいね等）に加え、通知配信用トークン等の技術データも順次削除します。運用改善のための統計情報は、個人を特定できない形で一定期間保持する場合があります。</p>
+
+      <h2 id="section-6" class="section"><span class="section-badge">6</span> ユーザーの権利と対応方法</h2>
+      <p>ユーザーは、個人情報の開示・訂正・削除、データ利用停止、アカウント削除の権利を有します。</p>
+      <p>これらの権利行使をご希望の場合は、以下の方法でお問い合わせください：</p>
+      <ul>
+        <li>アプリ内のお問い合わせ機能から「プライバシー関連」を選択</li>
+        <li>必要事項（メールアドレス、ご希望の対応内容、ユーザー名［任意］）を記載して送信</li>
+        <li>本人確認後、原則として30日以内に対応いたします</li>
+      </ul>
+      <p>アカウント削除については、プロフィール設定の「アカウント削除」機能からも実行可能です。</p>
+
+      <h2 id="section-7" class="section"><span class="section-badge">7</span> セキュリティ</h2>
+      <p>個人情報の漏洩、滅失、毀損の防止のため、適切な技術的・組織的安全管理措置を講じています。</p>
+
+      <h2 id="section-8" class="section"><span class="section-badge">8</span> プライバシーポリシーの変更</h2>
+      <p>本ポリシーに重要な変更（収集する情報の種類、利用目的、第三者提供の有無など、ユーザーに実質的な影響を与える変更）がある場合は、アプリ内や本ページ上で分かりやすくお知らせします。文言の調整や誤記修正など軽微な変更は、本ページの更新のみで案内します。</p>
+
+      <h2 id="section-9" class="section"><span class="section-badge">9</span> お問い合わせ</h2>
+      <p>個人情報の取り扱いに関するご質問やご要望は、アプリ内のお問い合わせ機能をご利用ください。メールでのご連絡も受け付けています。</p>
+
+      <h2 id="section-10" class="section"><span class="section-badge">10</span> ユーザーの選択肢</h2>
+      <ul>
+        <li>プッシュ通知はOSの設定からいつでも無効化できます。</li>
+        <li>解析（利用状況の計測）ではメールアドレス等の個人を特定できる情報は送信しません。計測の停止をご希望の場合は、お問い合わせください。</li>
+      </ul>
+
+      <h2 id="section-11" class="section"><span class="section-badge">11</span> 国外でのデータ処理</h2>
+      <p>本アプリの運営者が利用するクラウドサービスのサーバーは、日本国外で運用される場合があります。その場合も適用法令に基づき適切な保護措置を講じます。</p>
+
+      <h2 id="section-12" class="section"><span class="section-badge">12</span> 児童のプライバシー</h2>
+      <p>本アプリは子ども向けサービスとして設計していませんが、未成年の方が利用する場合は保護者の同意のもとでの利用を推奨します。13歳未満（または居住地域の法令で定める年齢未満）について、保護者の同意なしに個人情報を収集することは意図していません。該当が判明した場合は速やかに削除します。保護者の方はお問い合わせから削除をご依頼ください。</p>
+
+      <div class="back"><a href="index.html">← サポートページに戻る</a></div>
+
+      <div class="footer">
+        <p>ゲムコレ開発者</p>
+        <p>&copy; 2025 Yusuke Oshita. All rights reserved.</p>
+      </div>
+    </article>
+  </main>
 </body>
 </html>
