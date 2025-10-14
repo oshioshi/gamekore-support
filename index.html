@@ -1,126 +1,168 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ゲムコレ サポート</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #FFA94D;
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 2.5em;
-        }
-        h2 {
-            color: #00B8D9;
-            border-bottom: 2px solid #00B8D9;
-            padding-bottom: 10px;
-            margin-top: 30px;
-        }
-        .contact-info {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-            border-left: 4px solid #FFA94D;
-        }
-        .app-info {
-            text-align: center;
-            margin: 30px 0;
-            padding: 20px;
-            background: linear-gradient(135deg, #FFA94D, #00B8D9);
-            color: white;
-            border-radius: 8px;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            color: #666;
-            font-size: 0.9em;
-        }
-        a {
-            color: #00B8D9;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 8px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#151b23" media="(prefers-color-scheme: dark)" />
+  <title>ゲムコレ サポート</title>
+  <style>
+    :root {
+      --primary: #ffa94d;
+      --secondary: #00b8d9;
+      --bg: #f6f7fb;
+      --surface: #ffffff;
+      --text: #1f2937;
+      --text-secondary: #6b7280;
+      --border: #e5e7eb;
+      --shadow: 0 8px 24px rgba(16,24,40,0.06);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f141a;
+        --surface: #151b23;
+        --text: #e5e7eb;
+        --text-secondary: #9ca3af;
+        --border: #223042;
+        --shadow: 0 10px 30px rgba(2,8,23,0.6);
+      }
+    }
+
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', Meiryo, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Appbar */
+    .appbar {
+      position: sticky;
+      top: 0; z-index: 10;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      height: 56px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: var(--shadow);
+    }
+    .appbar-inner { max-width: 860px; width: 100%; display: flex; align-items: center; justify-content: center; padding: 0 16px; gap: 8px; }
+    .appbar-title { font-size: 18px; font-weight: 700; color: var(--primary); letter-spacing: 0.2px; }
+    .appbar-spacer { width: 32px; }
+    .shield { width: 22px; height: 22px; color: var(--primary); }
+    .shield svg { display: block; width: 100%; height: 100%; fill: currentColor; }
+
+    /* Page */
+    .page { display: flex; justify-content: center; padding: 24px 16px 56px; }
+    .container {
+      width: 100%; max-width: 860px; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 14px;
+      box-shadow: var(--shadow); padding: 24px;
+    }
+
+    .doc-title { text-align: center; font-weight: 800; font-size: 24px; margin: 6px 0 2px; }
+    .subtitle { text-align: center; color: var(--text-secondary); margin: 8px 0 22px; font-size: 14px; }
+
+    .meta-grid { display: grid; grid-template-columns: 1fr; gap: 8px; background: color-mix(in srgb, var(--secondary) 8%, transparent); border: 1px solid color-mix(in srgb, var(--secondary) 22%, var(--border)); padding: 16px; border-radius: 10px; margin: 10px 0 18px; }
+    .meta-item strong { color: var(--text-secondary); font-weight: 600; }
+
+    h2.section { display: flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 700; color: var(--text); margin: 28px 0 12px; padding-top: 6px; border-top: 1px solid color-mix(in srgb, var(--border) 70%, transparent); }
+    .section-badge { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 6px; background: color-mix(in srgb, var(--primary) 16%, transparent); color: var(--primary); font-weight: 800; font-size: 13px; }
+
+    p { line-height: 1.8; margin: 8px 0 10px; }
+    ul { padding-left: 1.2rem; margin: 8px 0 10px; }
+    li { margin: 6px 0; }
+    li::marker { color: var(--secondary); }
+
+    a { color: var(--secondary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .cta-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin: 16px 0 8px; }
+    .cta {
+      display: block; text-align: center; padding: 12px 16px; border-radius: 10px; border: 1px solid var(--border);
+      background: color-mix(in srgb, var(--primary) 8%, var(--surface)); color: var(--text); font-weight: 600;
+      transition: transform .05s ease-out, box-shadow .15s ease;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+    }
+    .cta:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+
+    .footer { text-align: center; margin-top: 32px; padding-top: 18px; border-top: 1px solid var(--border); color: var(--text-secondary); font-size: 13px; }
+
+    @media (min-width: 720px) {
+      .container { padding: 32px; }
+      .meta-grid { grid-template-columns: repeat(3, 1fr); }
+      .cta-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>ゲムコレ サポート</h1>
-
-        <div class="app-info">
-            <h3>積みゲー解消をサポート！</h3>
-            <p>ゲーム管理 & 積みゲー解消アプリ</p>
-        </div>
-
-        <h2>📧 お問い合わせ</h2>
-        <div class="contact-info">
-            <p><strong>サポートメール:</strong> y.oshita0110@gmail.com</p>
-            <p>アプリに関するご質問、バグ報告、機能要望などお気軽にお送りください。</p>
-        </div>
-
-        <h2>🔧 よくある質問</h2>
-        <h3>Q: ゲームが検索で見つからない</h3>
-        <p>A: IGDB APIを使用しているため、一部のゲームが見つからない場合があります。お問い合わせいただければ対応を検討いたします。</p>
-
-        <h3>Q: データのバックアップはありますか？</h3>
-        <p>A: Firebaseクラウドに自動保存されるため、アカウントでログインすれば別デバイスでもデータを確認できます。</p>
-
-        <h3>Q: アカウントを削除したい</h3>
-        <p>A: アプリ内の設定画面から「アカウント削除」を選択してください。完全削除されます。</p>
-
-        <h2>🐛 バグ報告時にお知らせください</h2>
-        <ul>
-            <li>使用デバイス（iPhone/Android機種）</li>
-            <li>アプリバージョン</li>
-            <li>発生した状況・手順</li>
-            <li>エラーメッセージ（あれば）</li>
-            <li>スクリーンショット（可能であれば）</li>
-        </ul>
-
-        <h2>🔒 プライバシー・セキュリティ</h2>
-        <p>ユーザーデータの取り扱いについては、<a href="privacy-policy.html">プライバシーポリシー</a>をご確認ください。</p>
-        <p>アプリは最新のセキュリティ基準に準拠し、Firebase Security Rulesでデータを保護しています。</p>
-
-        <h2>📱 アプリについて</h2>
-        <p><strong>ゲムコレ</strong>は、積みゲー管理とゲーム体験記録のためのアプリです。</p>
-        <ul>
-            <li>ゲームライブラリの効率的な管理</li>
-            <li>Tierランク機能でお気に入り整理</li>
-            <li>プレイ体験の記録・メモ機能</li>
-            <li>SNS共有機能</li>
-        </ul>
-
-        <div class="footer">
-            <p>&copy; 2025 Yusuke Oshita. All rights reserved.</p>
-            <p>ゲムコレ - ゲーム管理&積みゲー解消</p>
-        </div>
+  <header class="appbar" role="banner">
+    <div class="appbar-inner">
+      <div class="appbar-spacer" aria-hidden="true"></div>
+      <div class="shield" aria-hidden="true">
+        <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path d="M208,40l-76-24a8,8,0,0,0-4.9,0L52,40a8,8,0,0,0-4,6.9V120c0,78.4,86.1,106.2,87,106.5a7.9,7.9,0,0,0,5,0c0.9-.3,87-28.1,87-106.5V46.9A8,8,0,0,0,208,40ZM200,120c0,61.6-64,86.7-72,89.6C120,206.7,56,181.6,56,120V53.7l72-22.7,72,22.7Z"/></svg>
+      </div>
+      <div class="appbar-title">サポート</div>
+      <div class="appbar-spacer" aria-hidden="true"></div>
     </div>
+  </header>
+
+  <main class="page" role="main">
+    <section class="container">
+      <h1 class="doc-title">ゲムコレ サポート</h1>
+      <p class="subtitle">ゲーム管理と積みゲー解消のヘルプセンター</p>
+
+      <div class="meta-grid" aria-label="リンクと情報">
+        <div class="meta-item"><strong>プライバシー:</strong> <a href="privacy-policy.html">プライバシーポリシー</a></div>
+        <div class="meta-item"><strong>メール:</strong> <a href="mailto:y.oshita0110@gmail.com">y.oshita0110@gmail.com</a></div>
+        <div class="meta-item"><strong>開発者:</strong> Yusuke Oshita</div>
+      </div>
+
+      
+
+      <h2 id="contact" class="section"><span class="section-badge">1</span> お問い合わせ</h2>
+      <p>アプリに関するご質問、バグ報告、機能要望などお気軽にお送りください。</p>
+      <p><strong>サポートメール:</strong> <a href="mailto:y.oshita0110@gmail.com">y.oshita0110@gmail.com</a></p>
+
+      <h2 id="faq" class="section"><span class="section-badge">2</span> よくある質問</h2>
+      <p><strong>Q:</strong> ゲームが検索で見つからない</p>
+      <p><strong>A:</strong> IGDB APIを使用しているため、一部のゲームが見つからない場合があります。お手数ですが、サポートまでご連絡ください。</p>
+
+      <p><strong>Q:</strong> データのバックアップはありますか？</p>
+      <p><strong>A:</strong> Firebaseクラウドに自動保存されます。アカウントでログインすれば別デバイスでもデータを確認できます。</p>
+
+      <p><strong>Q:</strong> アカウントを削除したい</p>
+      <p><strong>A:</strong> アプリ内の設定画面から「アカウント削除」を選択してください。関連データは削除されます。</p>
+
+      <p><strong>Q:</strong> 明確なクリアがないゲームを「クリア済み」にしてよい？</p>
+      <p><strong>A:</strong> 自分の基準でOKです！ ある程度遊び終えた、満足した、一区切りついた等の「あなたにとっての完了」を基準に選んでください（後からいつでも変更できます）。</p>
+
+      <h2 id="bug-report" class="section"><span class="section-badge">3</span> バグ報告のポイント</h2>
+      <ul>
+        <li>使用デバイス（iPhone/Android機種）</li>
+        <li>アプリバージョン</li>
+        <li>発生した状況・手順</li>
+        <li>エラーメッセージ（あれば）</li>
+        <li>スクリーンショット（可能であれば）</li>
+      </ul>
+
+      <h2 id="about" class="section"><span class="section-badge">4</span> アプリについて</h2>
+      <p><strong>ゲムコレ</strong>は、積みゲー管理とゲーム体験記録のためのアプリです。</p>
+      <ul>
+        <li>ゲームライブラリの効率的な管理</li>
+        <li>Tierランク機能でお気に入り整理</li>
+        <li>プレイ体験の記録・メモ機能</li>
+        <li>SNS共有機能</li>
+      </ul>
+
+      <div class="footer">
+        <p>&copy; 2025 Yusuke Oshita. All rights reserved.</p>
+        <p>ゲムコレ - ゲーム管理 &amp; 積みゲー解消</p>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
