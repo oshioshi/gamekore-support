@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#151b23" media="(prefers-color-scheme: dark)" />
+  <title>Privacy Policy - Gamekore</title>
+  <style>
+    :root {
+      --primary: #ffa94d;
+      --secondary: #00b8d9;
+      --bg: #f6f7fb;
+      --surface: #ffffff;
+      --text: #1f2937;
+      --text-secondary: #6b7280;
+      --border: #e5e7eb;
+      --shadow: 0 8px 24px rgba(16,24,40,0.06);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f141a;
+        --surface: #151b23;
+        --text: #e5e7eb;
+        --text-secondary: #9ca3af;
+        --border: #223042;
+        --shadow: 0 10px 30px rgba(2,8,23,0.6);
+      }
+    }
+
+    html, body {
+      height: 100%;
+    }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', Meiryo, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Appbar */
+    .appbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow);
+    }
+    .appbar-inner {
+      max-width: 860px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 16px;
+      gap: 8px;
+    }
+    .appbar-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.2px;
+    }
+    .appbar-spacer { width: 32px; }
+
+    /* Page */
+    .page {
+      display: flex;
+      justify-content: center;
+      padding: 24px 16px 56px;
+    }
+    .container {
+      width: 100%;
+      max-width: 860px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    /* Header block like app */
+    .doc-title {
+      text-align: center;
+      font-weight: 800;
+      font-size: 24px;
+      margin: 6px 0 2px;
+    }
+    .last-updated {
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 13px;
+      margin: 8px 0 22px;
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      background: color-mix(in srgb, var(--secondary) 8%, transparent);
+      border: 1px solid color-mix(in srgb, var(--secondary) 22%, var(--border));
+      padding: 16px;
+      border-radius: 10px;
+      margin: 10px 0 18px;
+    }
+    .meta-item strong { color: var(--text-secondary); font-weight: 600; }
+
+    /* Sections */
+    h2.section {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin: 28px 0 12px;
+      padding-top: 6px;
+      border-top: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+    }
+    .section-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px; height: 26px;
+      border-radius: 6px;
+      background: color-mix(in srgb, var(--primary) 16%, transparent);
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 13px;
+    }
+    p { line-height: 1.8; margin: 8px 0 10px; }
+    ul { padding-left: 1.2rem; margin: 8px 0 10px; }
+    li { margin: 6px 0; }
+    li::marker { color: var(--secondary); }
+
+    /* Links */
+    a { color: var(--secondary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Back link */
+    .back {
+      text-align: center;
+      margin: 8px 0 22px;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      margin-top: 32px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 13px;
+    }
+
+    /* Shield icon */
+    .shield { width: 22px; height: 22px; color: var(--primary); }
+    .shield svg { display: block; width: 100%; height: 100%; fill: currentColor; }
+
+    @media (min-width: 720px) {
+      .meta-grid { grid-template-columns: repeat(3, 1fr); }
+      .container { padding: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- App-like header -->
+  <header class="appbar" role="banner">
+    <div class="appbar-inner">
+      <div class="appbar-spacer" aria-hidden="true"></div>
+      <div class="shield" aria-hidden="true">
+        <!-- phosphor-like shield svg -->
+        <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+          <path d="M208,40l-76-24a8,8,0,0,0-4.9,0L52,40a8,8,0,0,0-4,6.9V120c0,78.4,86.1,106.2,87,106.5a7.9,7.9,0,0,0,5,0c0.9-.3,87-28.1,87-106.5V46.9A8,8,0,0,0,208,40ZM200,120c0,61.6-64,86.7-72,89.6C120,206.7,56,181.6,56,120V53.7l72-22.7,72,22.7Z"/>
+        </svg>
+      </div>
+      <div class="appbar-title">Privacy Policy</div>
+      <div class="appbar-spacer" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <main class="page" role="main">
+    <article class="container">
+      <h1 class="doc-title">Privacy Policy</h1>
+      <div class="last-updated">Last updated: October 14, 2025</div>
+
+      <div class="meta-grid" aria-label="App info">
+        <div class="meta-item"><strong>App:</strong> Gamekore</div>
+        <div class="meta-item"><strong>Operator:</strong> Yusuke Oshita</div>
+        <div class="meta-item"><strong>Support:</strong> <a href="index.en.html">Support page</a></div>
+      </div>
+
+      <div class="back"><a href="index.en.html">&larr; Back to support</a></div>
+
+      <p>Gamekore (the "App") respects your privacy and is committed to protecting personal information. This Privacy Policy explains what information we collect and how we use and protect it.</p>
+
+      <h2 id="section-1" class="section"><span class="section-badge">1</span> Information we collect</h2>
+      <p>We collect the following information as needed to provide the service:</p>
+      <ul>
+        <li>Account information (authentication details, user name)</li>
+        <li>Game collection information (registered games, ratings)</li>
+        <li>Profile information</li>
+        <li>Usage data (screen views, feature usage events). We do not send personally identifiable information such as email addresses to analytics.</li>
+        <li>Push notification tokens and device identifiers (for notification delivery and abuse prevention)</li>
+      </ul>
+
+      <h2 id="section-2" class="section"><span class="section-badge">2</span> Purpose of use</h2>
+      <p>Collected information is used only to operate the App, support users, and improve the service.</p>
+
+      <h2 id="section-3" class="section"><span class="section-badge">3</span> Third-party services</h2>
+      <p>The App uses the following third-party services, each governed by their respective privacy policies:</p>
+      <ul>
+        <li><strong>Firebase (Google):</strong> authentication, data storage, cloud functions, analytics</li>
+        <li><strong>FCM/Expo:</strong> push notifications</li>
+        <li><strong>Resend:</strong> delivery of contact emails</li>
+        <li><strong>IGDB:</strong> game information database</li>
+      </ul>
+
+      <h2 id="section-4" class="section"><span class="section-badge">4</span> Sharing and disclosure</h2>
+      <p>We do not provide personal information to third parties except in the following cases:</p>
+      <ul>
+        <li>With the user's consent</li>
+        <li>When required by law</li>
+        <li>When necessary to protect life, body, or property</li>
+      </ul>
+
+      <h2 id="section-5" class="section"><span class="section-badge">5</span> Data storage and deletion</h2>
+      <p>User data is stored with appropriate security measures. After an account deletion request, related data (collections, play notes, follow relationships) and technical data such as push tokens will be deleted in sequence. Aggregated statistics that do not identify individuals may be retained for a limited period for service improvement.</p>
+
+      <h2 id="section-6" class="section"><span class="section-badge">6</span> Your rights and how to request</h2>
+      <p>Users have the right to access, correct, delete, or stop the use of their personal information, including account deletion.</p>
+      <p>To exercise these rights, please contact us as follows:</p>
+      <ul>
+        <li>Use the in-app Contact form and choose "Privacy"</li>
+        <li>Provide required details (email address, requested action, optional user name)</li>
+        <li>We will respond within 30 days after verifying your identity</li>
+      </ul>
+      <p>Account deletion can also be performed from Profile settings in the App.</p>
+
+      <h2 id="section-7" class="section"><span class="section-badge">7</span> Security</h2>
+      <p>We implement appropriate technical and organizational safeguards to prevent leakage, loss, or damage of personal information.</p>
+
+      <h2 id="section-8" class="section"><span class="section-badge">8</span> Changes to this policy</h2>
+      <p>If we make significant changes that materially affect users (for example, the types of data collected or purposes of use), we will provide clear notice in the App or on this page. Minor adjustments such as wording or typo fixes may be announced only by updating this page.</p>
+
+      <h2 id="section-9" class="section"><span class="section-badge">9</span> Contact</h2>
+      <p>For questions about personal data, please use the in-app Contact form. You may also reach us by email.</p>
+
+      <h2 id="section-10" class="section"><span class="section-badge">10</span> User choices</h2>
+      <ul>
+        <li>You can disable push notifications anytime in OS settings.</li>
+        <li>Analytics does not include personally identifiable information. If you want to opt out, please contact us.</li>
+      </ul>
+
+      <h2 id="section-11" class="section"><span class="section-badge">11</span> International data processing</h2>
+      <p>Cloud services used by the App may operate servers outside Japan. In such cases, we will apply appropriate safeguards under applicable laws.</p>
+
+      <h2 id="section-12" class="section"><span class="section-badge">12</span> Children's privacy</h2>
+      <p>The App is not designed for children. Minors should use the App with a guardian's consent. We do not intentionally collect personal information from users under 13 years old (or the age defined by local law). If we learn such data was collected, we will delete it promptly. Guardians may request deletion via the Contact form.</p>
+
+      <div class="back"><a href="index.en.html">&larr; Back to support</a></div>
+
+      <div class="footer">
+        <p>Gamekore team</p>
+        <p>&copy; 2025 Yusuke Oshita. All rights reserved.</p>
+      </div>
+    </article>
+  </main>
+</body>
+</html>
