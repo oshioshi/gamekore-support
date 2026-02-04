@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#151b23" media="(prefers-color-scheme: dark)" />
+  <title>Gamekore | Marketing</title>
+  <style>
+    :root {
+      --primary: #ffa94d;
+      --secondary: #00b8d9;
+      --bg: #f6f7fb;
+      --surface: #ffffff;
+      --text: #1f2937;
+      --text-secondary: #6b7280;
+      --border: #e5e7eb;
+      --shadow: 0 8px 24px rgba(16,24,40,0.06);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f141a;
+        --surface: #151b23;
+        --text: #e5e7eb;
+        --text-secondary: #9ca3af;
+        --border: #223042;
+        --shadow: 0 10px 30px rgba(2,8,23,0.6);
+      }
+    }
+
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', Meiryo, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .appbar {
+      position: sticky;
+      top: 0; z-index: 10;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      height: 56px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: var(--shadow);
+    }
+    .appbar-inner { max-width: 920px; width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; }
+    .appbar-title { font-size: 18px; font-weight: 700; color: var(--primary); letter-spacing: 0.2px; }
+    .appbar-links { display: flex; gap: 14px; font-size: 13px; }
+    .appbar-links a { color: var(--text-secondary); text-decoration: none; }
+    .appbar-links a:hover { color: var(--secondary); }
+
+    .page { display: flex; justify-content: center; padding: 28px 16px 64px; }
+    .container {
+      width: 100%; max-width: 920px; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 16px;
+      box-shadow: var(--shadow); padding: 28px;
+    }
+
+    .hero { display: grid; grid-template-columns: 1fr; gap: 20px; align-items: center; }
+    .hero-card {
+      background: color-mix(in srgb, var(--primary) 6%, var(--surface));
+      border: 1px solid color-mix(in srgb, var(--primary) 22%, var(--border));
+      padding: 18px; border-radius: 14px;
+    }
+    .logo { width: 72px; height: 72px; border-radius: 18px; border: 1px solid var(--border); box-shadow: 0 6px 16px rgba(16,24,40,0.12); }
+    .hero-title { font-size: 28px; font-weight: 800; margin: 8px 0 6px; }
+    .hero-sub { color: var(--text-secondary); line-height: 1.8; margin: 0; }
+
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+    .cta {
+      display: inline-flex; align-items: center; justify-content: center; padding: 12px 16px;
+      border-radius: 10px; border: 1px solid var(--border);
+      background: color-mix(in srgb, var(--primary) 12%, var(--surface));
+      color: var(--text); font-weight: 700; text-decoration: none;
+      transition: transform .05s ease-out, box-shadow .15s ease;
+    }
+    .cta:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+    .cta.secondary { background: var(--surface); }
+
+    h2.section { font-size: 18px; font-weight: 700; margin: 26px 0 12px; }
+    p { line-height: 1.8; margin: 6px 0 10px; }
+    ul { padding-left: 1.2rem; margin: 8px 0 10px; }
+    li { margin: 6px 0; }
+    li::marker { color: var(--secondary); }
+
+    .feature-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .feature {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      background: var(--surface);
+    }
+    .feature h3 { margin: 2px 0 6px; font-size: 15px; }
+    .feature p { margin: 0; color: var(--text-secondary); }
+
+    .image-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 10px; }
+    .image-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 10px;
+      background: var(--surface);
+    }
+    .image-card img { width: 100%; height: auto; border-radius: 10px; display: block; }
+    .image-caption { margin-top: 6px; font-size: 12px; color: var(--text-secondary); }
+
+    .notice {
+      border: 1px dashed color-mix(in srgb, var(--secondary) 30%, var(--border));
+      background: color-mix(in srgb, var(--secondary) 8%, transparent);
+      border-radius: 12px;
+      padding: 12px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .footer { text-align: center; margin-top: 36px; padding-top: 18px; border-top: 1px solid var(--border); color: var(--text-secondary); font-size: 13px; }
+
+    @media (min-width: 720px) {
+      .container { padding: 36px; }
+      .hero { grid-template-columns: 1.15fr 0.85fr; }
+      .feature-grid { grid-template-columns: repeat(3, 1fr); }
+      .image-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <header class="appbar" role="banner">
+    <div class="appbar-inner">
+      <div class="appbar-title">Gamekore</div>
+    </div>
+  </header>
+
+  <main class="page" role="main">
+    <section class="container">
+      <div class="hero">
+        <div>
+          <img class="logo" src="gamekore-icon.png" alt="Gamekore app icon" />
+          <h1 class="hero-title">Turn your backlog into a proud collection.</h1>
+          <p class="hero-sub">Too many games, not sure what you own or played? Gamekore helps you organize your backlog and play history into a personal collection you can revisit anytime.</p>
+          <div class="cta-row">
+            <a class="cta" href="https://apps.apple.com/jp/app/id6749495691">View on the App Store</a>
+            <a class="cta secondary" href="index.en.html">Support</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <p><strong>Find the next game to play</strong> and look back on past experiences.</p>
+          <p class="hero-sub">From backlog cleanup to release alerts. A collection and logging app for game lovers.</p>
+        </div>
+      </div>
+
+      <h2 class="section">Key Features</h2>
+      <div class="feature-grid">
+        <div class="feature">
+          <h3>Library Management</h3>
+          <p>Status tracking, IGDB search, release alerts.</p>
+        </div>
+        <div class="feature">
+          <h3>Tier Lists</h3>
+          <p>Rank favorites with S/A/B/C/D tiers.</p>
+        </div>
+        <div class="feature">
+          <h3>Play Trend Insights</h3>
+          <p>Review monthly, yearly, and all-time trends.</p>
+        </div>
+      </div>
+
+      <div class="image-grid" aria-label="App screenshots">
+        <div class="image-card">
+          <img src="1_en.png" alt="Gamekore screen 1" />
+        </div>
+        <div class="image-card">
+          <img src="2_en.png" alt="Gamekore screen 2" />
+        </div>
+      </div>
+
+      <h2 class="section">Recommended For</h2>
+      <ul>
+        <li>Too many games to keep track of</li>
+        <li>Not sure what to play next</li>
+        <li>Want a tidy record of favorites</li>
+        <li>Enjoy looking back at your collection</li>
+        <li>Curious about your play preferences</li>
+      </ul>
+
+      <div class="notice">
+        Some features require Premium. Registering more than 150 games, certain widgets, and detailed monthly or yearly analysis are Premium features.
+      </div>
+
+      <div class="footer">
+        <p>&copy; 2025 Yusuke Oshita. All rights reserved.</p>
+        <p>Gamekore - Game Collection &amp; Backlog Manager</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
